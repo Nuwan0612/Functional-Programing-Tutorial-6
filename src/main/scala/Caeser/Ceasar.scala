@@ -5,7 +5,7 @@ object Ceasar {
   def encrypt(key: Int, str: String): String = {
     str.map{ c =>
       if(c.isLetter) {
-        val base = 'A'
+        val base = if(c.isUpper) 'A' else 'a'
         (((c - base + (key%26) + 26) % 26) + base).toChar
       }else {
         c
